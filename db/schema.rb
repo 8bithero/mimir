@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418171112) do
+ActiveRecord::Schema.define(:version => 20121106082754) do
+
+  create_table "actual_values", :force => true do |t|
+    t.integer  "record_id"
+    t.integer  "revenue_code_id"
+    t.decimal  "value",           :precision => 25, :scale => 5
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  create_table "budget_values", :force => true do |t|
+    t.integer  "record_id"
+    t.integer  "revenue_code_id"
+    t.decimal  "value",           :precision => 25, :scale => 5
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  create_table "records", :force => true do |t|
+    t.integer  "year"
+    t.string   "month"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "revenue_codes", :force => true do |t|
+    t.decimal  "value",      :precision => 4, :scale => 2
+    t.string   "name"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

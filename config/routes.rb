@@ -1,4 +1,6 @@
 Mimir::Application.routes.draw do
+  resources :records
+
   authenticated :user do
     root :to => 'home#index'
   end

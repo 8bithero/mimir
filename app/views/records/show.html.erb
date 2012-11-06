@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @record.year %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%= @record.month %>
+</p>
+
+<table class="table table-hover">
+  <th>Year</th>
+  <th>Month</th>
+  <% @actual_values.each do |actual_value_record| %>
+    <th><%= actual_value_record.revenue_code.name %></th>
+  <% end %>
+
+  <tr>
+    <td><%= @record.year %></td>
+    <td><%= @record.month %></td>
+    <% @actual_values.each do |actual_value_record| %>
+      <td><%= actual_value_record.value.to_s %></th>
+    <% end %>
+  </tr>
+
+</table>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
