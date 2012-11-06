@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  def authenticate_admin_user!
+   redirect_to new_user_session_path unless current_user.try(:has_role?, :admin) 
+  end
+
 end

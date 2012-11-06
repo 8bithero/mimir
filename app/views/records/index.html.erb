@@ -9,6 +9,8 @@
     <th></th>
   </tr>
 
+  <h1><%= current_user.try(:has_role?, :admin) %></h1>
+
 <% @records.each do |record| %>
   <tr>
     <td><%= record.year %></td>

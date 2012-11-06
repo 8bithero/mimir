@@ -1,5 +1,7 @@
 Mimir::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
   resources :records
 
   authenticated :user do
